@@ -6,6 +6,8 @@ import ContactForm from "@/components/ContactForm";
 import { createClient } from "@/lib/supabase/server";
 import { Project, Certificate, Expertise } from "@/types/database";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const supabase = createClient();
 

@@ -4,6 +4,8 @@ import Image from "next/image";
 import { createClient } from "@/lib/supabase/server";
 import { Project } from "@/types/database";
 
+export const dynamic = "force-dynamic";
+
 export default async function ProjectsPage() {
   const supabase = createClient();
   const { data: profile } = await supabase
