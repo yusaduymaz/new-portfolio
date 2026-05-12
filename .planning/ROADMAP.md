@@ -1,0 +1,15 @@
+# Project Roadmap
+
+## Phase 01: Temel Altyapı ve Kimlik Doğrulama
+**Status:** Completed
+
+## Phase 02: Yönetici Paneli ve İçerik Yönetimi
+**Status:** Completed
+**Goal:** Admin Paneli üzerinden içeriklerin (projeler, yazılar) yönetilebilmesi.
+**Requirements:** [ADM-01, ADM-02, ADM-03, ADM-04]
+**Plans:** 5 plans
+- [x] 02-01-PLAN.md — Veritabanı Şeması ve Typescript Arayüzleri
+- [x] 02-02-PLAN.md — Admin Layout ve Dashboard
+- [x] 02-03-PLAN.md — Proje Yönetimi (CRUD)
+- [x] 02-04-PLAN.md — Blog/Yazı Yönetimi (CRUD)
+- [x] 02-05-PLAN.md — Uçtan Uca Test ve Doğrulama
