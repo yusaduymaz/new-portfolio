@@ -3,6 +3,8 @@ import Footer from "@/components/layout/Footer";
 import { createClient } from "@/lib/supabase/server";
 import { Certificate } from "@/types/database";
 
+export const dynamic = "force-dynamic";
+
 export default async function CertificatesPage() {
   const supabase = createClient();
   const { data: profile } = await supabase

@@ -3,6 +3,8 @@ import Footer from "@/components/layout/Footer";
 import { createClient } from "@/lib/supabase/server";
 import { Expertise, Education, Experience } from "@/types/database";
 
+export const dynamic = "force-dynamic";
+
 export default async function ExpertisePage() {
   const supabase = createClient();
 

@@ -3,6 +3,8 @@ import Footer from "@/components/layout/Footer";
 import ContactForm from "@/components/ContactForm";
 import { createClient } from "@/lib/supabase/server";
 
+export const dynamic = "force-dynamic";
+
 export default async function ContactPage() {
   const supabase = createClient();
   const { data: profile } = await supabase
