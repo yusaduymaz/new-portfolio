@@ -34,8 +34,8 @@ export default function Header() {
     <>
       {/* Desktop Header */}
       <header 
-        className={`fixed top-0 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] max-w-container-max mt-6 rounded-full bg-surface/80 backdrop-blur-xl border border-white/40 shadow-xl transition-all duration-500 ease-in-out z-50 hidden md:flex justify-between items-center px-8 py-4 glass-panel ${
-          scrolled ? "mt-4 py-3 bg-surface/90" : ""
+        className={`fixed top-0 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] max-w-container-max mt-6 rounded-full glass-panel transition-all duration-500 ease-in-out z-50 hidden md:flex justify-between items-center px-8 py-4 ${
+          scrolled ? "mt-4 py-3 bg-white/60" : "bg-white/40"
         }`}
       >
         <Link href="/" className="font-display-lg text-headline-sm font-bold tracking-tighter text-primary">
@@ -70,8 +70,8 @@ export default function Header() {
 
       {/* Mobile Header */}
       <header 
-        className={`fixed top-0 left-0 w-full z-50 md:hidden transition-all duration-300 ${
-          scrolled ? "bg-surface/90 backdrop-blur-xl shadow-lg py-4" : "py-6"
+        className={`fixed top-0 left-0 w-full z-50 md:hidden transition-all duration-300 border-b border-outline-variant/30 ${
+          scrolled ? "bg-white/80 backdrop-blur-xl shadow-lg py-4" : "bg-white/50 backdrop-blur-md py-5"
         }`}
       >
         <div className="px-6 flex justify-between items-center">
@@ -92,7 +92,7 @@ export default function Header() {
 
       {/* Mobile Menu Overlay */}
       <div 
-        className={`fixed inset-0 bg-surface z-40 md:hidden transition-transform duration-500 ease-in-out ${
+        className={`fixed inset-0 bg-surface z-40 md:hidden transition-transform duration-500 ease-in-out flex flex-col justify-center ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

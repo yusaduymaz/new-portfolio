@@ -10,59 +10,87 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "on-secondary-fixed-variant": "#5d4201",
-        "surface-container-low": "#f3f4f5",
-        "on-secondary-container": "#785a1a",
-        "on-error": "#ffffff",
-        "surface-container": "#edeeef",
-        "inverse-surface": "#2e3132",
-        "error": "#ba1a1a",
-        "on-surface": "#191c1d",
-        "surface-tint": "#5f5e5e",
-        "surface": "#f8f9fa",
-        "outline": "#747878",
+        border: "#c4c7c7", // outline-variant
+        input: "#edeeef", // surface-container
+        ring: "#775a19", // secondary
+        background: "#f8f9fa",
+        foreground: "#191c1d",
+        primary: {
+          DEFAULT: "#000000",
+          foreground: "#ffffff",
+        },
+        secondary: {
+          DEFAULT: "#775a19",
+          foreground: "#ffffff",
+        },
+        destructive: {
+          DEFAULT: "#ba1a1a",
+          foreground: "#ffffff",
+        },
+        muted: {
+          DEFAULT: "#f3f4f5", // surface-container-low
+          foreground: "#444748", // on-surface-variant
+        },
+        accent: {
+          DEFAULT: "#fed488", // secondary-container
+          foreground: "#785a1a", // on-secondary-container
+        },
+        popover: {
+          DEFAULT: "#ffffff",
+          foreground: "#191c1d",
+        },
+        card: {
+          DEFAULT: "#ffffff",
+          foreground: "#191c1d",
+        },
+        surface: "#f8f9fa",
         "surface-dim": "#d9dadb",
-        "on-surface-variant": "#444748",
-        "inverse-primary": "#c8c6c5",
-        "background": "#f8f9fa",
-        "outline-variant": "#c4c7c7",
-        "secondary": "#775a19",
-        "secondary-container": "#fed488",
-        "on-secondary-fixed": "#261900",
-        "surface-container-lowest": "#ffffff",
-        "surface-container-high": "#e7e8e9",
-        "on-tertiary-fixed-variant": "#3f484f",
-        "primary": "#000000",
-        "surface-variant": "#e1e3e4",
-        "tertiary-container": "#141d23",
-        "on-tertiary": "#ffffff",
-        "on-tertiary-fixed": "#141d23",
-        "primary-fixed-dim": "#c8c6c5",
         "surface-bright": "#f8f9fa",
-        "primary-container": "#1c1b1b",
-        "error-container": "#ffdad6",
-        "on-primary-container": "#858383",
-        "on-secondary": "#ffffff",
+        "surface-container-lowest": "#ffffff",
+        "surface-container-low": "#f3f4f5",
+        "surface-container": "#edeeef",
+        "surface-container-high": "#e7e8e9",
+        "surface-container-highest": "#e1e3e4",
+        "on-surface": "#191c1d",
+        "on-surface-variant": "#444748",
+        "inverse-surface": "#2e3132",
         "inverse-on-surface": "#f0f1f2",
-        "on-primary-fixed-variant": "#474746",
-        "tertiary": "#000000",
+        outline: "#747878",
+        "outline-variant": "#c4c7c7",
+        "surface-tint": "#5f5e5e",
+        "primary-container": "#1c1b1b",
+        "on-primary-container": "#858383",
+        "inverse-primary": "#c8c6c5",
+        "secondary-container": "#fed488",
+        "on-secondary-container": "#785a1a",
+        tertiary: "#000000",
+        "on-tertiary": "#ffffff",
+        "tertiary-container": "#141d23",
+        "on-tertiary-container": "#7c858d",
+        error: "#ba1a1a",
+        "on-error": "#ffffff",
+        "error-container": "#ffdad6",
         "on-error-container": "#93000a",
         "primary-fixed": "#e5e2e1",
+        "primary-fixed-dim": "#c8c6c5",
         "on-primary-fixed": "#1c1b1b",
+        "on-primary-fixed-variant": "#474746",
         "secondary-fixed": "#ffdea5",
-        "tertiary-fixed-dim": "#bfc8d0",
-        "on-background": "#191c1d",
-        "surface-container-highest": "#e1e3e4",
-        "on-primary": "#ffffff",
-        "on-tertiary-container": "#7c858d",
         "secondary-fixed-dim": "#e9c176",
-        "tertiary-fixed": "#dbe4ed"
+        "on-secondary-fixed": "#261900",
+        "on-secondary-fixed-variant": "#5d4201",
+        "tertiary-fixed": "#dbe4ed",
+        "tertiary-fixed-dim": "#bfc8d0",
+        "on-tertiary-fixed": "#141d23",
+        "on-tertiary-fixed-variant": "#3f484f",
       },
       borderRadius: {
-        "DEFAULT": "0.25rem",
-        "lg": "0.5rem",
-        "xl": "0.75rem",
-        "full": "9999px"
+        sm: '0.25rem',
+        DEFAULT: '0.5rem',
+        md: '0.75rem',
+        lg: '1rem',
+        xl: '1.5rem',
+        full: '9999px'
       },
       spacing: {
         "margin-desktop": "80px",
@@ -100,10 +128,60 @@ const config: Config = {
           "33%": { transform: "translate(30px, -50px) scale(1.1)" },
           "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
           "100%": { transform: "translate(0px, 0px) scale(1)" },
-        }
+        },
+        "spin-around": {
+          "0%": {
+            transform: "translateZ(0) rotate(0)",
+          },
+          "15%, 35%": {
+            transform: "translateZ(0) rotate(90deg)",
+          },
+          "65%, 85%": {
+            transform: "translateZ(0) rotate(270deg)",
+          },
+          "100%": {
+            transform: "translateZ(0) rotate(360deg)",
+          },
+        },
+        "shimmer-slide": {
+          to: {
+            transform: "translate(calc(100cqw - 100%), 0)",
+          },
+        },
+        ripple: {
+          "0%, 100%": {
+            transform: "translate(-50%, -50%) scale(1)",
+          },
+          "50%": {
+            transform: "translate(-50%, -50%) scale(0.9)",
+          },
+        },
+        "bounce-slow": {
+          "0%, 100%": {
+            transform: "translateY(-5%)",
+            animationTimingFunction: "cubic-bezier(0.8, 0, 1, 1)",
+          },
+          "50%": {
+            transform: "translateY(0)",
+            animationTimingFunction: "cubic-bezier(0, 0, 0.2, 1)",
+          },
+        },
+        "pulse-slow": {
+          "0%, 100%": {
+            opacity: "0.1",
+          },
+          "50%": {
+            opacity: "0.3",
+          },
+        },
       },
       animation: {
         blob: "blob 7s infinite",
+        "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
+        "shimmer-slide": "shimmer-slide var(--speed) ease-in-out infinite alternate",
+        ripple: "ripple var(--duration,2s) ease calc(var(--i, 0) * .2s) infinite",
+        "bounce-slow": "bounce-slow 3s infinite",
+        "pulse-slow": "pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       }
     },
   },

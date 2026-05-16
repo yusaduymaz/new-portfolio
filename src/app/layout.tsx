@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import AuthManager from "@/components/auth/AuthManager";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ 
   subsets: ["latin"], 
@@ -24,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={cn("scroll-smooth", "font-sans")}>
       <body className={`${inter.variable} ${spaceGrotesk.variable} bg-background text-on-background font-body-md min-h-screen flex flex-col relative overflow-x-hidden`}>
         <AuthManager />
         {children}
