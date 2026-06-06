@@ -69,6 +69,7 @@ export async function addProject(prevState: unknown, formData: FormData) {
         github_url: formData.get('github_url') as string,
         category: formData.get('category') as string,
         technologies,
+        sort_order: parseInt(formData.get('sort_order') as string) || 0,
     }])
 
   if (error) {
@@ -175,6 +176,7 @@ export async function updateProject(id: string, prevState: unknown, formData: Fo
         github_url: formData.get('github_url') as string,
         category: formData.get('category') as string,
         technologies,
+        sort_order: parseInt(formData.get('sort_order') as string) || 0,
     })
     .eq('id', id)
 

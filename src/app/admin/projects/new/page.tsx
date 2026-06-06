@@ -53,7 +53,13 @@ export default function NewProjectPage() {
             </div>
 
             <div>
+              <label htmlFor="sort_order" className={labelClass}>Sıra Numarası (Küçük olan önce çıkar)</label>
+              <input type="number" name="sort_order" id="sort_order" className={inputClass} placeholder="0" defaultValue="0" />
+            </div>
+
+            <div>
               <label htmlFor="description" className={labelClass}>Kısa Açıklama</label>
+
               <textarea id="description" name="description" rows={3} className={inputClass} placeholder="Projenin kısa bir özeti." />
             </div>
 

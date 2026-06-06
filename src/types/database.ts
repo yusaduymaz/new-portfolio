@@ -9,6 +9,7 @@ export interface Project {
   category: string | null;
   technologies: string[] | null;
   created_at: string;
+  sort_order: number;
 }
 
 export interface Profile {
