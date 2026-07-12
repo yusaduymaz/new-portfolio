@@ -19,21 +19,21 @@ function ContactSubmitButton() {
       <ShimmerButton 
         type="submit"
         disabled={pending}
-        className="w-full md:w-auto px-8 py-3 text-white disabled:opacity-75 disabled:cursor-wait"
+        className="w-full md:w-auto px-8 py-3.5 text-white disabled:opacity-75 disabled:cursor-wait rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-md"
         shimmerColor="#C5A059"
         shimmerSize="0.05em"
-        background="linear-gradient(180deg, #1A1A1A 0%, #333333 100%)"
+        background="linear-gradient(180deg, #121417 0%, #202428 100%)"
       >
-        <span className="flex items-center justify-center gap-3 font-label-md text-sm whitespace-pre-wrap text-center font-semibold leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-base">
+        <span className="flex items-center justify-center gap-2.5 font-mono text-xs uppercase tracking-widest font-semibold leading-none text-white">
           {pending ? (
             <>
-              <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin inline-block"></span>
-              <span>Gönderiliyor...</span>
+              <span className="w-4.5 h-4.5 border-2 border-white border-t-transparent rounded-full animate-spin inline-block"></span>
+              <span>GÖNDERİLİYOR...</span>
             </>
           ) : (
             <>
-              <span>Gönder</span>
-              <span className="material-symbols-outlined text-[18px]">send</span>
+              <span>GÖNDER</span>
+              <span className="material-symbols-outlined text-[16px]">send</span>
             </>
           )}
         </span>
@@ -57,18 +57,18 @@ export default function ContactForm() {
 
   return (
     <MagicCard 
-      className="glass-panel p-8 rounded-2xl flex flex-col relative"
-      gradientColor="rgba(197, 160, 89, 0.15)"
+      className="glass-panel p-8 md:p-10 rounded-3xl flex flex-col relative border border-white/60 shadow-md"
+      gradientColor="rgba(197, 160, 89, 0.03)"
     >
       <form ref={formRef} action={formAction} className="flex flex-col gap-6">
-        <h3 className="font-headline-md text-primary mb-2 tracking-tight">Mesaj Gönder</h3>
+        <h3 className="font-display-lg text-2xl font-bold text-primary tracking-tight">Mesaj Gönder</h3>
         
         <div className="flex flex-col gap-2 relative group">
-          <label htmlFor="name" className="font-label-md text-on-surface-variant text-xs uppercase tracking-wider">İsim</label>
+          <label htmlFor="name" className="font-mono text-[10px] text-on-surface-variant/80 uppercase tracking-widest">İsim</label>
           <input 
             id="name"
             name="name"
-            className="px-0 py-3 bg-transparent border-b-2 border-outline-variant/30 focus:border-secondary transition-colors outline-none text-on-surface font-body-md placeholder:text-outline-variant/50" 
+            className="input-glass px-4 py-3.5 rounded-xl border border-outline-variant/20 outline-none text-on-surface font-body-md placeholder:text-outline-variant/50 text-sm" 
             placeholder="Adınız Soyadınız" 
             type="text" 
             required
@@ -76,23 +76,23 @@ export default function ContactForm() {
         </div>
         
         <div className="flex flex-col gap-2 relative group">
-          <label htmlFor="email" className="font-label-md text-on-surface-variant text-xs uppercase tracking-wider">E-posta</label>
+          <label htmlFor="email" className="font-mono text-[10px] text-on-surface-variant/80 uppercase tracking-widest">E-posta</label>
           <input 
             id="email"
             name="email"
-            className="px-0 py-3 bg-transparent border-b-2 border-outline-variant/30 focus:border-secondary transition-colors outline-none text-on-surface font-body-md placeholder:text-outline-variant/50" 
+            className="input-glass px-4 py-3.5 rounded-xl border border-outline-variant/20 outline-none text-on-surface font-body-md placeholder:text-outline-variant/50 text-sm" 
             placeholder="ornek@email.com" 
             type="email" 
             required
           />
         </div>
         
-        <div className="flex flex-col gap-2 relative group mt-2">
-          <label htmlFor="message" className="font-label-md text-on-surface-variant text-xs uppercase tracking-wider">Mesaj</label>
+        <div className="flex flex-col gap-2 relative group">
+          <label htmlFor="message" className="font-mono text-[10px] text-on-surface-variant/80 uppercase tracking-widest">Mesaj</label>
           <textarea 
             id="message"
             name="message"
-            className="px-0 py-3 bg-transparent border-b-2 border-outline-variant/30 focus:border-secondary transition-colors outline-none text-on-surface font-body-md resize-none placeholder:text-outline-variant/50" 
+            className="input-glass px-4 py-3.5 rounded-xl border border-outline-variant/20 outline-none text-on-surface font-body-md resize-none placeholder:text-outline-variant/50 text-sm" 
             placeholder="Mesajınızı buraya yazın..." 
             rows={4}
             required

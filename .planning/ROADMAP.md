@@ -1,15 +1,36 @@
-# Project Roadmap
+# Active Roadmap: Milestone v2.0 (Premium Landing Page Revamp)
 
-## Phase 01: Temel Altyapı ve Kimlik Doğrulama
+## Phase 01: Araştırma, Planlama ve Konsept Belirleme
 **Status:** Completed
+**Goal:** Refero ile tasarım araştırması yapılması, tasarım kararlarının SPEC.md dosyasına dökülmesi ve kullanıcı ile soru-cevap seansı (grill-me) ile planın netleştirilmesi.
+**Plans:**
+- [x] 01-01-PLAN.md — Refero Tasarım İncelemesi ve Tasarım Spesifikasyonu (SPEC.md)
+- [x] 01-02-PLAN.md — Soru-Cevap (Grill-Me) Seansı ve Detaylı Yol Haritası
 
-## Phase 02: Yönetici Paneli ve İçerik Yönetimi
+## Phase 02: Stil Altyapısı ve Layout Polishing
 **Status:** Completed
-**Goal:** Admin Paneli üzerinden içeriklerin (projeler, yazılar) yönetilebilmesi.
-**Requirements:** [ADM-01, ADM-02, ADM-03, ADM-04]
-**Plans:** 5 plans
-- [x] 02-01-PLAN.md — Veritabanı Şeması ve Typescript Arayüzleri
-- [x] 02-02-PLAN.md — Admin Layout ve Dashboard
-- [x] 02-03-PLAN.md — Proje Yönetimi (CRUD)
-- [x] 02-04-PLAN.md — Blog/Yazı Yönetimi (CRUD)
-- [x] 02-05-PLAN.md — Uçtan Uca Test ve Doğrulama
+**Goal:** Global CSS, fontlar ve temel bileşenlerin (Header, Footer, Glassmorphism temelleri) yeni tasarıma uyarlanması.
+**Plans:**
+- [x] 02-01-PLAN.md — CSS & Tema Altyapısı Revizyonu
+- [x] 02-02-PLAN.md — Header ve Footer Modernizasyonu
+
+## Phase 03: Hero & About Me Redesign
+**Status:** Completed
+**Goal:** Hero alanının ve Hakkımda bölümlerinin premium seviyeye yükseltilmesi.
+**Plans:**
+- [x] 03-01-PLAN.md — Etkileşimli Hero Tasarımı
+- [x] 03-02-PLAN.md — Bento Grid About Me Bölümü
+
+## Phase 04: Expertise & Projects Redesign
+**Status:** Completed
+**Goal:** Uzmanlık alanları ve Seçilmiş Çalışmalar bölümlerinin güncellenmesi.
+**Plans:**
+- [x] 04-01-PLAN.md — Core Capabilities Bento Tasarımı
+- [x] 04-02-PLAN.md — Hover Animasyonlu Proje Kartları
+
+## Phase 05: Contact Form & Final Integration
+**Status:** Completed
+**Goal:** İletişim formu ve final görsel entegrasyonu.
+**Plans:**
+- [x] 05-01-PLAN.md — Glassmorphism İletişim Formu Tasarımı
+- [x] 05-02-PLAN.md — Uçtan Uca Entegrasyon, Performans ve UAT Testleri

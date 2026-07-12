@@ -33,53 +33,54 @@ export default function Header() {
   return (
     <>
       {/* Desktop Header */}
-      <header 
-        className={`fixed top-0 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] max-w-container-max mt-6 rounded-full glass-panel transition-all duration-500 ease-in-out z-50 hidden md:flex justify-between items-center px-8 py-4 ${
-          scrolled ? "mt-4 py-3 bg-white/60" : "bg-white/40"
-        }`}
-      >
-        <Link href="/" className="font-display-lg text-headline-sm font-bold tracking-tighter text-primary">
-          MYD
-        </Link>
-        
-        <nav className="flex gap-8 items-center">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`font-label-md text-label-md transition-all duration-300 relative group py-1 ${
-                isActive(link.href) 
-                  ? "text-secondary" 
-                  : "text-on-surface-variant hover:text-secondary"
-              }`}
-            >
-              {link.name}
-              <span 
-                className={`absolute bottom-0 left-0 h-0.5 bg-secondary transition-all duration-300 ${
-                  isActive(link.href) ? "w-full" : "w-0 group-hover:w-full"
-                }`}
-              ></span>
+      <div className="fixed top-0 left-0 w-full z-50 hidden md:flex justify-center pointer-events-none">
+        <header
+          className={`w-[calc(100%-40px)] max-w-container-max mt-6 rounded-full glass-panel pointer-events-auto transition-[margin,padding,background-color,box-shadow] duration-500 ease-in-out flex justify-between items-center px-8 py-4 ${scrolled ? "mt-4 py-3 bg-white/80 shadow-md" : "bg-white/60"
+            }`}
+        >
+          <div className="flex items-center gap-4">
+            <Link href="/" className="font-display-lg text-headline-sm font-bold tracking-tighter text-primary">
+              MYD
             </Link>
-          ))}
-        </nav>
+            <div className="h-4 w-px bg-outline-variant/30 hidden lg:block" />
+          </div>
 
-        <Link className="btn-primary px-6 py-2 rounded-full font-label-md text-label-md" href="/login">
-          Giriş Yap
-        </Link>
-      </header>
+          <nav className="flex gap-8 items-center">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`font-label-md text-label-md transition-all duration-300 relative group py-1 ${isActive(link.href)
+                  ? "text-secondary"
+                  : "text-on-surface-variant hover:text-secondary"
+                  }`}
+              >
+                {link.name}
+                <span
+                  className={`absolute bottom-0 left-0 h-0.5 bg-secondary transition-all duration-300 ${isActive(link.href) ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                ></span>
+              </Link>
+            ))}
+          </nav>
+
+          <Link className="btn-primary px-6 py-2 rounded-full font-label-md text-label-md shadow-sm" href="/login">
+            Giriş Yap
+          </Link>
+        </header>
+      </div>
 
       {/* Mobile Header */}
-      <header 
-        className={`fixed top-0 left-0 w-full z-50 md:hidden transition-all duration-300 border-b border-outline-variant/30 ${
-          scrolled ? "bg-white/80 backdrop-blur-xl shadow-lg py-4" : "bg-white/50 backdrop-blur-md py-5"
-        }`}
+      <header
+        className={`fixed top-0 left-0 w-full z-50 md:hidden transition-[padding,background-color,box-shadow] duration-300 border-b border-outline-variant/30 ${scrolled ? "bg-white/80 backdrop-blur-xl shadow-lg py-4" : "bg-white/50 backdrop-blur-md py-5"
+          }`}
       >
         <div className="px-6 flex justify-between items-center">
           <Link href="/" className="font-display-lg text-2xl font-bold tracking-tighter text-primary">
             MYD
           </Link>
-          
-          <button 
+
+          <button
             onClick={() => setIsOpen(!isOpen)}
             className="w-10 h-10 flex items-center justify-center text-primary relative z-50"
           >
@@ -91,10 +92,9 @@ export default function Header() {
       </header>
 
       {/* Mobile Menu Overlay */}
-      <div 
-        className={`fixed inset-0 bg-surface z-40 md:hidden transition-transform duration-500 ease-in-out flex flex-col justify-center ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+      <div
+        className={`fixed inset-0 bg-surface z-40 md:hidden transition-transform duration-500 ease-in-out flex flex-col justify-center ${isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="flex flex-col items-center justify-center h-full gap-8 px-6">
           {navLinks.map((link) => (
@@ -102,16 +102,15 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className={`font-display-lg text-3xl transition-colors ${
-                isActive(link.href) ? "text-secondary" : "text-primary"
-              }`}
+              className={`font-display-lg text-3xl transition-colors ${isActive(link.href) ? "text-secondary" : "text-primary"
+                }`}
             >
               {link.name}
             </Link>
           ))}
-          <Link 
+          <Link
             onClick={() => setIsOpen(false)}
-            className="btn-primary px-10 py-4 rounded-full font-label-md text-xl mt-4" 
+            className="btn-primary px-10 py-4 rounded-full font-label-md text-xl mt-4"
             href="/login"
           >
             Giriş Yap

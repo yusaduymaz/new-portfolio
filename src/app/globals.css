@@ -9,78 +9,68 @@
   .glass-panel,
   .glass-card {
     position: relative;
-    overflow: hidden;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    border: 1px solid;
-    border-image-source: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 100%);
-    border-image-slice: 1;
-    z-index: 1;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .glass-panel::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('https://picsum.photos/seed/future/1200/800');
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    z-index: -1;
+  .glass-panel:hover,
+  .glass-card:hover {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(197, 160, 89, 0.3); /* Subtle Champagne Gold glow */
+    box-shadow: 0 20px 40px -15px rgba(197, 160, 89, 0.08),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
   }
 
-  .glass-panel:hover::before {
-    opacity: 0.1;
-  }
-
-  .glass-panel:hover {
-    backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
-    border-image-source: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.5) 100%);
-    box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+  .glass-terminal {
+    background: #0d0f12;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.25);
   }
 
   .btn-primary {
-    background: linear-gradient(180deg, #1a1a1a 0%, #333333 100%);
+    background: linear-gradient(180deg, #121417 0%, #202428 100%);
     color: #ffffff;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .btn-primary:hover {
-    box-shadow: 0 0 15px rgba(197, 160, 89, 0.5); /* Champagne Gold ripple/glow */
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.35); /* Champagne Gold ripple/glow */
+    background: linear-gradient(180deg, #202428 0%, #121417 100%);
   }
 
   .btn-secondary {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(20px);
-    color: #191c1d;
-    border: 1px solid #1a1a1a;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #121417;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .btn-secondary:hover {
-    background-color: #1a1a1a;
+    background-color: #121417;
     color: #ffffff;
-    box-shadow: 0 0 15px rgba(197, 160, 89, 0.5); /* Champagne Gold ripple/glow */
+    border-color: #121417;
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.3); /* Champagne Gold ripple/glow */
   }
 
   .input-glass {
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(10px);
-    border: 1px solid transparent;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .input-glass:focus {
     outline: none;
-    border-bottom: 2px solid #C5A059; /* Champagne Gold */
-    background: rgba(255, 255, 255, 0.8);
+    border-color: #C5A059; /* Champagne Gold */
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 0 15px rgba(197, 160, 89, 0.15);
   }
 }
 

@@ -3,12 +3,18 @@ import { Profile } from "@/types/database";
 
 export default function Footer({ profile }: { profile: Profile | null }) {
   return (
-    <footer className="w-full py-20 px-margin-desktop bg-surface dark:bg-primary border-t border-outline-variant/20 flat transition-all duration-300 flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto mt-auto relative z-10">
-      <div className="font-headline-sm text-headline-sm text-primary dark:text-secondary mb-8 md:mb-0">
-        MYD
+    <footer className="w-full py-16 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest border-t border-outline-variant/30 transition-all duration-300 flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto mt-auto relative z-10 gap-8">
+      <div className="flex flex-col items-center md:items-start gap-2">
+        <div className="font-display-lg text-headline-sm font-bold tracking-tighter text-primary">
+          MYD
+        </div>
+        <div className="flex items-center gap-2 text-[10px] font-mono text-on-surface-variant">
+          <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+          <span className="tracking-wider uppercase">uptime 99.99% (all nodes operational)</span>
+        </div>
       </div>
-      <div className="text-on-surface-variant font-body-md text-body-md text-center md:text-left mb-8 md:mb-0">
-        © {new Date().getFullYear()} {profile?.full_name || "Your Name"}. Tüm hakları saklıdır.
+      <div className="text-on-surface-variant font-body-md text-sm text-center md:text-left">
+        © {new Date().getFullYear()} {profile?.full_name || "Muhammed Yuşa Duymaz"}. Tüm hakları saklıdır.
       </div>
       <div className="flex gap-6">
         {profile?.linkedin_url && (
