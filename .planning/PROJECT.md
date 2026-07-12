@@ -14,4 +14,5 @@ A premium, highly interactive developer portfolio that showcases advanced capabi
 
 ## Milestones Overview
 - **v1.0 - Core Infrastructure & Admin Control**: Supabase DB, Auth, Admin CRUD. (Completed)
-- **v2.0 - Premium UI Revamp (Landing Page Focus)**: Re-imagining the homepage with world-class UX/UI, senior-level copy, high-fidelity components, and Refero design alignment. (Active)
+- **v2.0 - Premium UI Revamp (Landing Page Focus)**: Re-imagining the homepage with world-class UX/UI, senior-level copy, high-fidelity components, and Refero design alignment. (Completed)
+- **v3.0 - Public Pages & Detail Experiences**: Extending the v2.0 premium design language to public sub-pages and detail/overlay experiences. Extended with Phase 04: end-to-end bilingual (TR/EN) i18n via next-intl (URL routing `/tr`+`/en` + bilingual DB `_en` columns). (Active)

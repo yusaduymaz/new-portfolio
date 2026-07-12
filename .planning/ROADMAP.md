@@ -1,36 +1,27 @@
-# Active Roadmap: Milestone v2.0 (Premium Landing Page Revamp)
+# Active Roadmap: Milestone v3.0 (Public Pages & Detail Experiences)
 
-## Phase 01: Araştırma, Planlama ve Konsept Belirleme
+## Phase 01: Projeler Sayfası Revize ve Detay Modalı
 **Status:** Completed
-**Goal:** Refero ile tasarım araştırması yapılması, tasarım kararlarının SPEC.md dosyasına dökülmesi ve kullanıcı ile soru-cevap seansı (grill-me) ile planın netleştirilmesi.
+**Goal:** /projects sayfasının premium, refero-grounded browser-viewport kartlarıyla yeniden tasarlanması ve projeye tıklandığında erişilebilir, kapanma tuşuna (X/Esc/backdrop) sahip detay modalının açılması. URL (?p=) senkronu ile paylaşılabilir + geri tuşu kapatır.
+**Requirements:** [REQ-PUB-01, REQ-PUB-02, REQ-PUB-03]
 **Plans:**
-- [x] 01-01-PLAN.md — Refero Tasarım İncelemesi ve Tasarım Spesifikasyonu (SPEC.md)
-- [x] 01-02-PLAN.md — Soru-Cevap (Grill-Me) Seansı ve Detaylı Yol Haritası
+- [x] 01-01-PLAN.md — Projeler Sayfası Revizyonu + Erişilebilir Detay Modalı
 
-## Phase 02: Stil Altyapısı ve Layout Polishing
-**Status:** Completed
-**Goal:** Global CSS, fontlar ve temel bileşenlerin (Header, Footer, Glassmorphism temelleri) yeni tasarıma uyarlanması.
-**Plans:**
-- [x] 02-01-PLAN.md — CSS & Tema Altyapısı Revizyonu
-- [x] 02-02-PLAN.md — Header ve Footer Modernizasyonu
+## Phase 02: Blog / Yazı Detay Deneyimi (Upcoming)
+**Status:** Upcoming
+**Goal:** Blog yazıları için detay okuma deneyimi (modal veya route) ve liste sayfası polish'i.
 
-## Phase 03: Hero & About Me Redesign
-**Status:** Completed
-**Goal:** Hero alanının ve Hakkımda bölümlerinin premium seviyeye yükseltilmesi.
-**Plans:**
-- [x] 03-01-PLAN.md — Etkileşimli Hero Tasarımı
-- [x] 03-02-PLAN.md — Bento Grid About Me Bölümü
+## Phase 03: Final Polish & Performans (Upcoming)
+**Status:** Upcoming
+**Goal:** Tüm public alt-sayfalar için son görsel tutarlılık, performans ve E2E doğrulama; milestone audit.
 
-## Phase 04: Expertise & Projects Redesign
-**Status:** Completed
-**Goal:** Uzmanlık alanları ve Seçilmiş Çalışmalar bölümlerinin güncellenmesi.
-**Plans:**
-- [x] 04-01-PLAN.md — Core Capabilities Bento Tasarımı
-- [x] 04-02-PLAN.md — Hover Animasyonlu Proje Kartları
 
-## Phase 05: Contact Form & Final Integration
-**Status:** Completed
-**Goal:** İletişim formu ve final görsel entegrasyonu.
+## Phase 04: i18n & English Localization (Uçtan Uca Çift Dilli Destek)
+**Status:** Upcoming (Plan Ready)
+**Goal:** Portfolyoyu uçtan uca TR/EN çift dilli yapmak — statik UI stringleri + dinamik Supabase içeriği + metadata/SEO. URL tabanlı locale routing (`/tr`, `/en`) + çift dilli `_en` DB kolonları.
+**Requirements:** [REQ-PUB-04]
 **Plans:**
-- [x] 05-01-PLAN.md — Glassmorphism İletişim Formu Tasarımı
-- [x] 05-02-PLAN.md — Uçtan Uca Entegrasyon, Performans ve UAT Testleri
+- [ ] 04-01-PLAN.md — i18n Altyapısı & Routing (next-intl, [locale] taşıma, middleware)
+- [ ] 04-02-PLAN.md — Statik UI Stringlerinin Çevirisi + Locale Switcher
+- [ ] 04-03-PLAN.md — Dinamik DB Çift Dilli Destek (_en kolonları + admin EN alanları)
+- [ ] 04-04-PLAN.md — E2E Doğrulama, Build & UAT

@@ -1,34 +1,32 @@
-# Active Requirements: Milestone v2.0 (Premium Landing Page Revamp)
+# Active Requirements: Milestone v3.0 (Public Pages & Detail Experiences)
 
 ## Goal
-Redesign and upgrade the main landing page (homepage) of the portfolio to a senior-level, professional standard using state-of-the-art UI/UX patterns, high-fidelity micro-interactions, cohesive typography/colors, and solid content structures. All designs should align with Refero-derived patterns.
+v2.0'da kurulan premium landing-page tasarım dilini, public alt-sayfalara ve detay/overlay deneyimlerine taşıyarak genişletmek. İlk odak: /projects sayfası revizyonu + proje detay modalı. Tüm görsel kararlar Refero/Linear referanslarına ve mevcut glassmorphism + Champagne Gold sistemine dayalı olmalı (AI slop yok).
 
 ## Functional & Aesthetic Requirements
 
-### REQ-01: Hero Section Redesign
-- Upgrade the visual presentation from a simple layout to an immersive, premium hero container.
-- Implement an interactive canvas or high-end grid element.
-- Keep the profile database integration (dynamically rendering name, title, avatar, etc. from Supabase).
-- Action buttons must have sophisticated hover effects and smooth transitions.
+### REQ-PUB-01: Projects Page Revision
+- /projects grid'i, anasayfadaki browser-viewport kart diliyle premium seviyeye yükseltilmeli (macOS chrome header + screenshot frame + details panel).
+- Kartlar tam-yüzey tıklanabilir olmalı (button semantiği, klavye Enter/Space ile açılır) ve net "Detayları Gör" affordance'ı içermeli; iç içe interaktif eleman (nested button>a) hatası oluşturmamalı.
+- Boş DB durumu zarif bir empty-state ile ele alınmalı.
 
-### REQ-02: About Me Section Redesign
-- Display senior-level professional copy and dynamic metrics (experience years, completed projects, customer satisfaction).
-- Implement a grid structure (e.g., Bento or multi-layer layout) with polished borders and subtle light sweep animations on cards.
-- Support resume download and external profiles (GitHub, LinkedIn) with polished icon designs.
+### REQ-PUB-02: Project Detail Modal
+- Projeye tıklandığında erişilebilir bir modal/pencere açılmalı; 3 yolla kapanabilmeli: sağ-üst X tuşu, Escape, backdrop tıkı.
+- Modal içeriği: browser-chrome header, hero görsel, kategori + tarih, başlık, kısa açıklama, full `content` (paragraflara bölünmüş), teknoloji chip'leri ve GitHub/Canlı Demo aksiyonları.
+- Erişilebilirlik: focus trap, body scroll lock, kapatınca önceki focus'a dönüş; framer-motion ile yumuşak enter/exit.
+- URL senkronu (?p=<id>): paylaşılabilir link ve tarayıcı geri tuşu modalı kapatır (sayfadan ayrılmadan).
 
-### REQ-03: Core Capabilities & Expertise Bento
-- Create an engaging visual display for the expertise items fetched from Supabase.
-- Categories: "Data Science" and "Full-stack Development".
-- Include premium icons, category markers, and a clean grid structure with micro-interactions on hover.
+### REQ-PUB-03: Design Alignment
+- Tüm görsel kararlar mevcut glassmorphism + Champagne Gold sistemine (DESIGN.md, globals.css `.glass-panel`/`.btn-primary`/`.btn-secondary`) ve Refero/Linear referanslarına dayanmalı.
+- Motion: cubic-bezier(0.16,1,0.3,1), 0.25–0.5s; typography: Space Grotesk başlık + Inter gövde; renk: HSL-tailored Champagne Gold (#775a19/#C5A059) + slate chrome (#0b0d10).
 
-### REQ-04: Selected Works (Projects) Section Redesign
-- Showcase featured projects with card designs that use dynamic image loading, smooth zoom transitions, floating category tags, and elegant actions (GitHub link, Live Demo).
-- Ensure graceful handling of empty states.
 
-### REQ-05: Contact & Connect Redesign
-- Polished contact card listing connection endpoints (email, location) alongside the interactive contact form.
-- Input fields should use subtle, modern focus transitions (glassmorphism input styles).
-
-### REQ-06: Navigation (Header & Footer) Polish
-- Fix header styling to blend seamlessly with the new design. It should feel lightweight, floating, with dynamic blur backdrops (backdrop-filter) and interactive menu states.
-- Footer should mirror the header's design system and look complete and neat.
+### REQ-PUB-04: End-to-End English Localization (i18n) — Phase 04
+- Add full bilingual (TR/EN) support across the entire public portfolio: static UI strings, dynamic Supabase content, and SEO metadata.
+- Implement URL-based locale routing (`/tr`, `/en`) via `next-intl`; default locale Turkish, root `/` resolves to TR.
+- Merge next-intl locale middleware with the existing Supabase auth middleware (admin/login auth flow preserved).
+- Provide a premium locale switcher (TR/EN) in the header reusing the locked glassmorphic + Champagne Gold design tokens (Refero/v2.0 system); no new visual language.
+- Translate ALL hard-coded Turkish UI strings (nav, hero, about, expertise, projects, certificates, contact, footer, form, metadata) into `tr.json`/`en.json` with zero hardcoded TR strings remaining.
+- Make dynamic DB content bilingual via nullable `_en` columns (profiles, about, projects, expertise, certificates, education, experience) with a `coalesce(<en>, <base>)` fallback so empty EN gracefully shows TR.
+- Extend admin forms with EN input fields so English content is manageable.
+- Ensure correct `<html lang>`, hreflang canonical alternates, and locale-aware `generateMetadata` for SEO.

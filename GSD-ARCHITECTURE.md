@@ -1,4 +1,4 @@
-# Workspace Customization Rules: LoexAI B2B SaaS
+# Workspace Customization Rules: 
 
 These are project-scoped guidelines that the agent MUST follow at all times.
 
