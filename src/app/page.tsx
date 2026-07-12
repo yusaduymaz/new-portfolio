@@ -5,12 +5,13 @@ import Footer from "@/components/layout/Footer";
 import ContactForm from "@/components/ContactForm";
 import HeroSection from "@/components/HeroSection";
 import ExpertiseBento from "@/components/ExpertiseBento";
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient as createClient } from "@/lib/supabase/public";
 import { Project } from "@/types/database";
 import { WordPullUp } from "@/components/ui/word-pull-up";
 import { MagicCard } from "@/components/ui/magic-card";
+import Icon from "@/components/ui/icon";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 export default async function Home() {
   const supabase = createClient();
@@ -43,9 +44,9 @@ export default async function Home() {
     <div className="bg-background min-h-screen text-on-surface font-body-lg selection:bg-secondary/20 selection:text-secondary">
       <Header />
 
-      <main className="flex-grow w-full relative z-10">
+      <main id="main" className="flex-grow w-full relative z-10">
         <HeroSection profile={profile} />
-        
+
         {/* About Me Section */}
         <section className="py-section-gap px-margin-mobile md:px-margin-desktop relative z-10 bg-transparent border-t border-outline-variant/30" id="about-me">
           <div className="max-w-container-max mx-auto">
@@ -54,13 +55,12 @@ export default async function Home() {
                 className="text-4xl md:text-5xl font-bold text-primary tracking-tight font-display-lg text-left"
                 words="Hakkımda"
               />
-              <p className="text-on-surface-variant mt-4 font-label-md tracking-widest text-secondary uppercase text-left">/sys/profile/identity</p>
             </div>
-            
+
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
               {/* Main Bio Card (8 Columns) */}
               <div className="lg:col-span-8">
-                <MagicCard 
+                <MagicCard
                   className="glass-panel p-8 md:p-12 rounded-3xl flex flex-col justify-between h-full border border-white/60 shadow-md relative overflow-hidden"
                   gradientColor="rgba(197, 160, 89, 0.04)"
                 >
@@ -74,11 +74,11 @@ export default async function Home() {
                         </p>
                       </div>
                     </div>
-                    
+
                     <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-outline-variant/20 mt-auto">
                       {profile?.cv_url && (
                         <a href={profile.cv_url} download target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-8 py-3.5 rounded-xl bg-primary text-white hover:bg-secondary hover:text-white transition-all duration-300 font-label-md tracking-widest uppercase text-xs shadow-md active:scale-95" aria-label="Download CV">
-                          <span className="material-symbols-outlined text-lg">download</span>
+                          <Icon name="download" className="w-5 h-5" />
                           Download CV
                         </a>
                       )}
@@ -99,23 +99,23 @@ export default async function Home() {
 
               {/* Metrics Column (4 Columns) */}
               <div className="lg:col-span-4 flex flex-col gap-6 justify-between">
-                <MagicCard 
+                <MagicCard
                   className="glass-panel p-8 rounded-2xl flex flex-col justify-center border border-white/60 shadow-sm flex-1"
                   gradientColor="rgba(197, 160, 89, 0.02)"
                 >
                   <span className="font-display-lg text-4xl md:text-5xl text-secondary mb-1 drop-shadow-sm">{aboutData?.experience || 5}+</span>
                   <span className="font-mono tracking-widest uppercase text-on-surface-variant text-[11px] font-semibold mt-1">Yıl Deneyim</span>
                 </MagicCard>
-                
-                <MagicCard 
+
+                <MagicCard
                   className="glass-panel p-8 rounded-2xl flex flex-col justify-center border border-white/60 shadow-sm flex-1"
                   gradientColor="rgba(197, 160, 89, 0.02)"
                 >
                   <span className="font-display-lg text-4xl md:text-5xl text-secondary mb-1 drop-shadow-sm">{aboutData?.completed_projects || 50}+</span>
                   <span className="font-mono tracking-widest uppercase text-on-surface-variant text-[11px] font-semibold mt-1">Proje</span>
                 </MagicCard>
-                
-                <MagicCard 
+
+                <MagicCard
                   className="glass-panel p-8 rounded-2xl flex flex-col justify-center border border-white/60 shadow-sm flex-1"
                   gradientColor="rgba(197, 160, 89, 0.02)"
                 >
@@ -126,7 +126,7 @@ export default async function Home() {
             </div>
           </div>
         </section>
-        
+
         <ExpertiseBento expertise={expertise || []} />
 
         {/* Selected Work / Projeler Section */}
@@ -138,19 +138,18 @@ export default async function Home() {
                   className="text-4xl md:text-5xl font-bold text-primary tracking-tight font-display-lg"
                   words="Seçilmiş Çalışmalar"
                 />
-                <p className="text-on-surface-variant mt-4 font-label-md tracking-widest text-secondary uppercase">/sys/projects/featured</p>
               </div>
               <Link className="px-6 py-3 rounded-full font-label-md text-on-surface hover:text-primary transition-all duration-300 border border-outline-variant hover:border-secondary bg-white/60 hover:bg-white text-sm tracking-widest uppercase flex items-center gap-2 group shadow-sm active:scale-95" href="/projects">
-                <span className="material-symbols-outlined text-[18px] group-hover:text-secondary transition-colors">visibility</span>
+                <Icon name="visibility" className="w-[18px] h-[18px] group-hover:text-secondary transition-colors" />
                 TÜM PROJELERİ GÖR
               </Link>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
               {projects && projects.length > 0 ? (
                 projects.map((project: Project) => (
-                  <MagicCard 
-                    key={project.id} 
+                  <MagicCard
+                    key={project.id}
                     className="glass-panel p-0 rounded-2xl overflow-hidden group flex flex-col border border-white/60 transition-all duration-500 hover:shadow-xl"
                     gradientColor="rgba(197, 160, 89, 0.03)"
                   >
@@ -169,14 +168,14 @@ export default async function Home() {
                     {/* Screenshot Frame */}
                     <div className="h-[240px] sm:h-[320px] overflow-hidden relative bg-surface-container border-b border-outline-variant/10">
                       {project.image_url ? (
-                        <Image fill unoptimized alt={project.title || "Project Image"} className="object-cover transition-transform duration-700 group-hover:scale-[1.03]" src={project.image_url} />
+                        <Image fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" alt={project.title || "Project Image"} className="object-cover transition-transform duration-700 group-hover:scale-[1.03]" src={project.image_url} />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center bg-surface-container-low">
-                          <span className="material-symbols-outlined text-6xl text-outline/20">image</span>
+                          <Icon name="image" className="w-16 h-16 text-outline/20" />
                         </div>
                       )}
                     </div>
-                    
+
                     {/* Details Panel */}
                     <div className="p-6 sm:p-8 flex flex-col justify-between flex-grow gap-4 bg-white/40">
                       <div className="flex flex-col gap-2">
@@ -185,16 +184,16 @@ export default async function Home() {
                           <p className="text-on-surface-variant leading-relaxed font-body-md text-sm line-clamp-2">{project.description}</p>
                         )}
                       </div>
-                      
+
                       <div className="flex gap-5 pt-3 border-t border-outline-variant/10 mt-auto">
                         {project.github_url && (
                           <a className="font-mono text-[11px] tracking-wider uppercase text-on-surface-variant hover:text-primary flex items-center gap-1.5 transition-colors" href={project.github_url} target="_blank" rel="noopener noreferrer">
-                            <span className="material-symbols-outlined text-base">code</span> GitHub
+                            <Icon name="code" className="w-4 h-4" /> GitHub
                           </a>
                         )}
                         {project.live_url && (
                           <a className="font-mono text-[11px] tracking-wider uppercase text-on-surface-variant hover:text-secondary flex items-center gap-1.5 transition-colors" href={project.live_url} target="_blank" rel="noopener noreferrer">
-                            <span className="material-symbols-outlined text-base">open_in_new</span> Live Demo
+                            <Icon name="open_in_new" className="w-4 h-4" /> Live Demo
                           </a>
                         )}
                       </div>
@@ -203,7 +202,7 @@ export default async function Home() {
                 ))
               ) : (
                 <div className="col-span-2 glass-panel p-16 rounded-2xl text-center border border-white/60">
-                  <span className="material-symbols-outlined text-5xl text-outline mb-3">folder_open</span>
+                  <Icon name="folder_open" className="w-12 h-12 text-outline mb-3 mx-auto" />
                   <p className="text-on-surface-variant font-mono text-sm">PROJE BULUNAMADI</p>
                 </div>
               )}
@@ -219,11 +218,10 @@ export default async function Home() {
                 className="text-4xl md:text-5xl font-bold text-primary tracking-tight font-display-lg"
                 words="Bağlantı Başlat"
               />
-              <p className="text-on-surface-variant mt-4 font-label-md tracking-widest text-secondary uppercase">/sys/network/contact</p>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-x-gutter">
               <div className="col-span-1 lg:col-span-5 flex flex-col h-full">
-                <MagicCard 
+                <MagicCard
                   className="glass-panel p-8 md:p-10 rounded-3xl flex flex-col gap-10 h-full border border-white/60 shadow-md"
                   gradientColor="rgba(197, 160, 89, 0.03)"
                 >
@@ -231,11 +229,11 @@ export default async function Home() {
                     <h3 className="text-2xl font-bold text-primary mb-4 font-display-lg border-b border-outline-variant/20 pb-4">Sıra dışı bir şeyler inşa edelim.</h3>
                     <p className="text-on-surface-variant leading-relaxed font-body-md text-base md:text-lg">Yüksek performanslı bir web uygulaması, yapay zeka entegrasyonu veya ölçeklenebilir bir sistem. Birlikte çalışmaya hazırım.</p>
                   </div>
-                  
+
                   <div className="flex flex-col gap-8 flex-grow justify-center mt-4">
                     <div className="flex items-center gap-6 group">
                       <div className="w-12 h-12 bg-surface-container rounded-xl flex items-center justify-center text-secondary transition-all duration-300 group-hover:scale-110 group-hover:bg-secondary group-hover:text-white shadow-sm border border-outline-variant/20">
-                        <span className="material-symbols-outlined text-xl">mail</span>
+                        <Icon name="mail" className="w-5 h-5" />
                       </div>
                       <div>
                         <h4 className="font-mono text-[9px] text-on-surface-variant/80 uppercase tracking-widest mb-0.5">E-posta Adresi</h4>
@@ -244,7 +242,7 @@ export default async function Home() {
                     </div>
                     <div className="flex items-center gap-6 group">
                       <div className="w-12 h-12 bg-surface-container rounded-xl flex items-center justify-center text-secondary transition-all duration-300 group-hover:scale-110 group-hover:bg-secondary group-hover:text-white shadow-sm border border-outline-variant/20">
-                        <span className="material-symbols-outlined text-xl">location_on</span>
+                        <Icon name="location_on" className="w-5 h-5" />
                       </div>
                       <div>
                         <h4 className="font-mono text-[9px] text-on-surface-variant/80 uppercase tracking-widest mb-0.5">Lokasyon</h4>

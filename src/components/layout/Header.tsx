@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Icon from "@/components/ui/icon";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +14,7 @@ export default function Header() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -39,17 +40,18 @@ export default function Header() {
             }`}
         >
           <div className="flex items-center gap-4">
-            <Link href="/" className="font-display-lg text-headline-sm font-bold tracking-tighter text-primary">
+            <Link href="/" className="font-display-lg text-headline-sm font-bold tracking-tighter text-primary" aria-label="Anasayfa — M.Y.D. Portfolio">
               MYD
             </Link>
             <div className="h-4 w-px bg-outline-variant/30 hidden lg:block" />
           </div>
 
-          <nav className="flex gap-8 items-center">
+          <nav aria-label="Ana navigasyon" className="flex gap-8 items-center">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
+                aria-current={isActive(link.href) ? "page" : undefined}
                 className={`font-label-md text-label-md transition-all duration-300 relative group py-1 ${isActive(link.href)
                   ? "text-secondary"
                   : "text-on-surface-variant hover:text-secondary"
@@ -76,32 +78,35 @@ export default function Header() {
           }`}
       >
         <div className="px-6 flex justify-between items-center">
-          <Link href="/" className="font-display-lg text-2xl font-bold tracking-tighter text-primary">
+          <Link href="/" className="font-display-lg text-2xl font-bold tracking-tighter text-primary" aria-label="Anasayfa — M.Y.D. Portfolio">
             MYD
           </Link>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Menüyü kapat" : "Menüyü aç"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
             className="w-10 h-10 flex items-center justify-center text-primary relative z-50"
           >
-            <span className="material-symbols-outlined text-3xl">
-              {isOpen ? "close" : "menu"}
-            </span>
+            <Icon name={isOpen ? "close" : "menu"} className="w-7 h-7" />
           </button>
         </div>
       </header>
 
       {/* Mobile Menu Overlay */}
       <div
+        id="mobile-menu"
         className={`fixed inset-0 bg-surface z-40 md:hidden transition-transform duration-500 ease-in-out flex flex-col justify-center ${isOpen ? "translate-x-0" : "translate-x-full"
           }`}
       >
-        <div className="flex flex-col items-center justify-center h-full gap-8 px-6">
+        <nav aria-label="Mobil navigasyon" className="flex flex-col items-center justify-center h-full gap-8 px-6">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setIsOpen(false)}
+              aria-current={isActive(link.href) ? "page" : undefined}
               className={`font-display-lg text-3xl transition-colors ${isActive(link.href) ? "text-secondary" : "text-primary"
                 }`}
             >
@@ -115,9 +120,10 @@ export default function Header() {
           >
             Giriş Yap
           </Link>
-        </div>
+        </nav>
       </div>
     </>
   );
 }
+
 

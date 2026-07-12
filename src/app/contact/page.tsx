@@ -1,12 +1,21 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ContactForm from "@/components/ContactForm";
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient as createClient } from "@/lib/supabase/public";
 import { WordPullUp } from "@/components/ui/word-pull-up";
 import { Particles } from "@/components/ui/particles";
 import { MagicCard } from "@/components/ui/magic-card";
+import Icon from "@/components/ui/icon";
+import type { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
+
+export const metadata: Metadata = {
+  title: "İletişim",
+  description:
+    "Yeni bir proje başlatmak veya sadece merhaba demek için iletişim formunu doldurun — en kısa sürede geri döneceğim.",
+  alternates: { canonical: "/contact" },
+};
 
 export default async function ContactPage() {
   const supabase = createClient();
@@ -18,8 +27,7 @@ export default async function ContactPage() {
   return (
     <>
       <Header />
-      <main className="flex-grow pt-32 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10 overflow-hidden">
-        {/* Background Particles */}
+      <main id="main" className="flex-grow pt-32 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10 overflow-hidden">
         <Particles
           className="absolute inset-0 -z-10"
           quantity={50}
@@ -27,10 +35,9 @@ export default async function ContactPage() {
           color="#191c1d"
           refresh
         />
-        
+
         <section className="mb-section-gap relative z-10">
           <div className="flex flex-col gap-6 mb-16 text-center items-center">
-            {/* Title with WordPullUp animation */}
             <WordPullUp
               className="font-display-lg text-[48px] md:text-[72px] leading-[1.1] text-primary"
               words="Bana Ulaşın"
@@ -41,10 +48,8 @@ export default async function ContactPage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-x-gutter">
-            
-            {/* Left Column: Contact Info */}
             <div className="col-span-1 lg:col-span-5 flex flex-col h-full">
-              <MagicCard 
+              <MagicCard
                 className="glass-panel p-10 rounded-3xl flex flex-col gap-10 h-full"
                 gradientColor="rgba(197, 160, 89, 0.15)"
               >
@@ -54,31 +59,31 @@ export default async function ContactPage() {
                     Bana doğrudan aşağıdaki kanallardan ulaşabilirsiniz veya yandaki iletişim formunu kullanabilirsiniz.
                   </p>
                 </div>
-                
+
                 <div className="flex flex-col gap-8 flex-grow justify-center">
                   <div className="flex items-center gap-6 group">
                     <div className="w-14 h-14 bg-surface-variant rounded-full flex items-center justify-center text-secondary transition-transform duration-300 group-hover:scale-110 group-hover:bg-secondary group-hover:text-white shadow-sm">
-                      <span className="material-symbols-outlined text-2xl">mail</span>
+                      <Icon name="mail" className="w-6 h-6" />
                     </div>
                     <div>
                       <h4 className="font-label-md text-primary mb-1 uppercase tracking-wider text-xs text-on-surface-variant">E-posta</h4>
                       <a href="mailto:hello@mydportfolio.com" className="font-body-lg text-primary font-medium hover:text-secondary transition-colors">hello@mydportfolio.com</a>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center gap-6 group">
                     <div className="w-14 h-14 bg-surface-variant rounded-full flex items-center justify-center text-secondary transition-transform duration-300 group-hover:scale-110 group-hover:bg-secondary group-hover:text-white shadow-sm">
-                      <span className="material-symbols-outlined text-2xl">location_on</span>
+                      <Icon name="location_on" className="w-6 h-6" />
                     </div>
                     <div>
                       <h4 className="font-label-md text-primary mb-1 uppercase tracking-wider text-xs text-on-surface-variant">Konum</h4>
                       <span className="font-body-lg text-primary font-medium">İstanbul, Türkiye</span>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center gap-6 group">
                     <div className="w-14 h-14 bg-surface-variant rounded-full flex items-center justify-center text-secondary transition-transform duration-300 group-hover:scale-110 group-hover:bg-secondary group-hover:text-white shadow-sm">
-                      <span className="material-symbols-outlined text-2xl">phone</span>
+                      <Icon name="phone" className="w-6 h-6" />
                     </div>
                     <div>
                       <h4 className="font-label-md text-primary mb-1 uppercase tracking-wider text-xs text-on-surface-variant">Telefon</h4>
@@ -89,7 +94,6 @@ export default async function ContactPage() {
               </MagicCard>
             </div>
 
-            {/* Right Column: Contact Form */}
             <div className="col-span-1 lg:col-span-7 flex flex-col">
               <ContactForm />
             </div>
@@ -101,3 +105,4 @@ export default async function ContactPage() {
     </>
   );
 }
+

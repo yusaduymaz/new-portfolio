@@ -10,12 +10,13 @@
 | 02 | Blog / Yazı Detay Deneyimi | Upcoming |
 | 03 | Final Polish & Performans | Upcoming |
 | 04 | i18n & English Localization | Plan Ready (Execution Pending) |
+| 05 | PageSpeed 100 / Core Web Vitals | Active (Plan Ready) |
 
 ## Current Plan
 **Milestone:** v3.0
-**Phase:** 04 — i18n & English Localization
-**Plan:** 04-01-PLAN.md (i18n Altyapısı & Routing)
-**Status:** In Progress (Plan oluşturuldu, execution bekliyor)
+**Phase:** 05 — PageSpeed 100 / Core Web Vitals Mükemmelleştirme
+**Plan:** 05-01-PLAN.md (T1-T13 execution)
+**Status:** Wave 1 tamamlandı — `npm run build` yeşil (0 hata/uyarı), public sayfalar statik (○ ISR). Wave 2 (admin ikon migrasyonu, backdrop-filter mobil, Particles, Lighthouse iterasyon) bekliyor.
 
 ## Decisions
 - Milestone v1.0 (Auth & Admin CRUD) tamamlanarak başarıyla arşivlendi.

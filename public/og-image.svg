@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="bg" cx="0.2" cy="0.2" r="0.95">
+      <stop offset="0" stop-color="#2a2418"/>
+      <stop offset="0.55" stop-color="#14161a"/>
+      <stop offset="1" stop-color="#0b0d10"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1120" cy="80" r="8" fill="#C5A059" opacity="0.9"/>
+  <circle cx="1120" cy="80" r="22" fill="none" stroke="#C5A059" stroke-width="1" opacity="0.25"/>
+  <text x="80" y="170" font-family="'Space Grotesk', Inter, sans-serif" font-size="32" font-weight="600" fill="#C5A059" letter-spacing="6">MUHAMMED YUŞA DUYMAZ</text>
+  <text x="76" y="300" font-family="'Space Grotesk', Inter, sans-serif" font-size="88" font-weight="800" fill="#f8f9fa">Web Tasarımcı</text>
+  <text x="76" y="396" font-family="'Space Grotesk', Inter, sans-serif" font-size="88" font-weight="800" fill="#f8f9fa">&amp; Geliştirici</text>
+  <text x="80" y="476" font-family="Inter, sans-serif" font-size="28" fill="#9aa0a3">Data Science · AI Engineering · Full-Stack Development</text>
+  <rect x="76" y="508" width="64" height="3" fill="#C5A059"/>
+</svg>

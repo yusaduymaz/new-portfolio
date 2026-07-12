@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import StaticMeshGradient, { staticMeshGradientPresets } from "@/components/ui/mesh-gradient";
+import StaticMeshGradient, { staticMeshGradientPresets } from "@/components/ui/static-mesh-gradient";
 
 const MONO = '"Paper Mono", ui-monospace, SFMono-Regular, Menlo, monospace';
 
@@ -253,6 +253,7 @@ export default function StaticMeshGradientDemo() {
     (staticMeshGradientPresets[0].params as Record<string, unknown>).colors as string[],
   );
 
+
   const set = (key: string, value: string | number | boolean) => setParams((p) => ({ ...p, [key]: value }));
 
   const applyPreset = (presetParams: Record<string, unknown>) => {
@@ -269,7 +270,7 @@ export default function StaticMeshGradientDemo() {
       }}
     >
       <div style={{ flex: 1, minHeight: 480, display: "flex", minWidth: 0 }}>
-        <StaticMeshGradient {...(params as object)} colors={colors} style={{ width: "100%", height: "100%" }} />
+        <StaticMeshGradient {...(params as Record<string, unknown>)} colors={colors} style={{ width: "100%", height: "100%" }} />
       </div>
 
       <div
@@ -325,4 +326,3 @@ export default function StaticMeshGradientDemo() {
     </div>
   );
 }
-

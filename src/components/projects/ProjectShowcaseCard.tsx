@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Project } from "@/types/database";
+import Icon from "@/components/ui/icon";
 
 type ProjectShowcaseCardProps = {
   project: Project;
@@ -12,10 +13,8 @@ type ProjectShowcaseCardProps = {
 
 /**
  * Premium, tıklanabilir browser-viewport proje kartı.
- * Anasayfa (v2.0 Phase 04) kart diliyle birebir tutarlı; tek fark:
- * kök eleman <button> (tek aksiyon: detayı aç) ve "Detayları Gör" affordance'ı.
+ * Kök eleman <button> (tek aksiyon: detayı aç) ve "Detayları Gör" affordance'ı.
  * Native <button> Enter/Space ile onClick tetikler → ayrı onKeyDown gerekmez.
- * Refero grounding: 01-SPEC.md §1.
  */
 export default function ProjectShowcaseCard({
   project,
@@ -60,14 +59,12 @@ export default function ProjectShowcaseCard({
             src={project.image_url}
             alt={project.title || "Project image"}
             fill
-            unoptimized
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">
-            <span className="material-symbols-outlined text-6xl text-on-surface-variant/20">
-              image
-            </span>
+            <Icon name="image" className="w-16 h-16 text-on-surface-variant/20" />
           </div>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
@@ -111,10 +108,11 @@ export default function ProjectShowcaseCard({
         )}
 
         <div className="flex items-center gap-1.5 mt-2 font-mono text-[11px] tracking-wider uppercase text-on-surface-variant group-hover:text-secondary transition-colors">
-          <span className="material-symbols-outlined text-base">arrow_outward</span>
+          <Icon name="arrow_outward" className="w-4 h-4" />
           Detayları Gör
         </div>
       </div>
     </motion.button>
   );
 }
+

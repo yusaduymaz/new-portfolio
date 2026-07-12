@@ -1,12 +1,21 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient as createClient } from "@/lib/supabase/public";
 import { Expertise, Education, Experience } from "@/types/database";
 import { WordPullUp } from "@/components/ui/word-pull-up";
 import { Particles } from "@/components/ui/particles";
 import { MagicCard } from "@/components/ui/magic-card";
+import Icon from "@/components/ui/icon";
+import type { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
+
+export const metadata: Metadata = {
+  title: "Uzmanlıklar & Deneyim",
+  description:
+    "Yıllar içinde edindiğim tecrübeler, eğitim hayatım ve uzmanlık alanlarımın detaylı bir dökümü.",
+  alternates: { canonical: "/expertise" },
+};
 
 export default async function ExpertisePage() {
   const supabase = createClient();
@@ -51,7 +60,7 @@ export default async function ExpertisePage() {
   return (
     <>
       <Header />
-      <main className="flex-grow pt-32 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10 overflow-hidden">
+      <main id="main" className="flex-grow pt-32 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10 overflow-hidden">
         {/* Background Particles for Premium Light Mode vibe */}
         <Particles
           className="absolute inset-0 -z-10"
@@ -84,7 +93,7 @@ export default async function ExpertisePage() {
                     {Object.entries(expertiseByCategory).map(([category, items]) => (
                       <div key={category}>
                         <h3 className="font-headline-md text-secondary flex items-center gap-2 mb-6 tracking-tight">
-                          <span className="material-symbols-outlined text-3xl">{categoryIcons[category] || "category"}</span>
+                          <Icon name={categoryIcons[category] || "category"} className="w-8 h-8" />
                           {category}
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -154,7 +163,7 @@ export default async function ExpertisePage() {
                   </div>
                 ) : (
                   <div className="glass-panel p-12 rounded-3xl text-center">
-                    <span className="material-symbols-outlined text-6xl text-on-surface-variant/20 mb-4">work</span>
+                    <Icon name="work" className="w-16 h-16 text-on-surface-variant/20 mb-4 mx-auto" />
                     <p className="font-body-md text-on-surface-variant">Henüz deneyim eklenmedi.</p>
                   </div>
                 )}
@@ -172,7 +181,7 @@ export default async function ExpertisePage() {
                         gradientColor="rgba(197, 160, 89, 0.1)"
                       >
                         <div className="flex gap-4 items-start">
-                          <span className="material-symbols-outlined text-4xl text-secondary/50 mt-1">school</span>
+                          <Icon name="school" className="w-9 h-9 text-secondary/50 mt-1" />
                           <div>
                             <h3 className="font-headline-sm text-primary">{item.title}</h3>
                             <p className="font-body-md text-on-surface-variant font-medium">{item.institution}</p>
@@ -188,7 +197,7 @@ export default async function ExpertisePage() {
                   </div>
                 ) : (
                   <div className="glass-panel p-12 rounded-3xl text-center">
-                    <span className="material-symbols-outlined text-6xl text-on-surface-variant/20 mb-4">school</span>
+                    <Icon name="school" className="w-16 h-16 text-on-surface-variant/20 mb-4 mx-auto" />
                     <p className="font-body-md text-on-surface-variant">Henüz eğitim bilgisi eklenmedi.</p>
                   </div>
                 )}

@@ -25,3 +25,12 @@
 - [ ] 04-02-PLAN.md — Statik UI Stringlerinin Çevirisi + Locale Switcher
 - [ ] 04-03-PLAN.md — Dinamik DB Çift Dilli Destek (_en kolonları + admin EN alanları)
 - [ ] 04-04-PLAN.md — E2E Doğrulama, Build & UAT
+
+## Phase 05: PageSpeed 100 / Core Web Vitals Mükemmelleştirme (Active)
+**Status:** Active (Plan Ready)
+**Goal:** Google PageSpeed Insights — Mobil VE Masaüstü, 4 kategoride (Performans, Erişilebilirlik, En İyi Uygulamalar, SEO) **100/100**. Render-blok font kaldırma, görsel AVIF/WebP optimizasyonu, SSR→ISR, WebGL shader → CSS, SEO altyapısı (sitemap/robots/manifest), erişilebilirlik + güvenlik header'ları. Görsel dil (glassmorphism + Champagne Gold) korunarak.
+**Requirements:** [REQ-PERF-01..04, REQ-SEO-01..03, REQ-A11Y-01, REQ-BP-01]
+**Plans:**
+- [ ] 05-01-PLAN.md — PageSpeed 100 Execution (T1-T13)
+- [ ] 05-VERIFICATION.md — Lighthouse denetim checklist
+- [ ] 05-UAT.md — Mobil + masaüstü kabul testi

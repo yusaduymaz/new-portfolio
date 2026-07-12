@@ -19,6 +19,14 @@ export default async function AdminLayout({
 
   return (
     <>
+      {/* eslint-disable @next/next/no-page-custom-font */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      />
+      {/* eslint-enable @next/next/no-page-custom-font */}
       <ToastProvider />
       <div className="flex h-screen bg-background font-body-md text-on-background overflow-hidden relative">
         {/* Background Blobs for Admin Panel (Subtle) */}

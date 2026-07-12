@@ -6,6 +6,7 @@ import { sendMessage } from '@/app/contactActions';
 import toast from 'react-hot-toast';
 import { MagicCard } from '@/components/ui/magic-card';
 import { ShimmerButton } from '@/components/ui/shimmer-button';
+import Icon from '@/components/ui/icon';
 
 const initialState = {
   message: '',
@@ -27,13 +28,13 @@ function ContactSubmitButton() {
         <span className="flex items-center justify-center gap-2.5 font-mono text-xs uppercase tracking-widest font-semibold leading-none text-white">
           {pending ? (
             <>
-              <span className="w-4.5 h-4.5 border-2 border-white border-t-transparent rounded-full animate-spin inline-block"></span>
+              <Icon name="progress_activity" className="w-4 h-4 animate-spin" />
               <span>GÖNDERİLİYOR...</span>
             </>
           ) : (
             <>
               <span>GÖNDER</span>
-              <span className="material-symbols-outlined text-[16px]">send</span>
+              <Icon name="send" className="w-4 h-4" />
             </>
           )}
         </span>
@@ -64,7 +65,7 @@ export default function ContactForm() {
         <h3 className="font-display-lg text-2xl font-bold text-primary tracking-tight">Mesaj Gönder</h3>
         
         <div className="flex flex-col gap-2 relative group">
-          <label htmlFor="name" className="font-mono text-[10px] text-on-surface-variant/80 uppercase tracking-widest">İsim</label>
+          <label htmlFor="name" className="font-mono text-xs text-on-surface-variant uppercase tracking-widest">İsim</label>
           <input 
             id="name"
             name="name"
@@ -72,11 +73,12 @@ export default function ContactForm() {
             placeholder="Adınız Soyadınız" 
             type="text" 
             required
+            autoComplete="name"
           />
         </div>
         
         <div className="flex flex-col gap-2 relative group">
-          <label htmlFor="email" className="font-mono text-[10px] text-on-surface-variant/80 uppercase tracking-widest">E-posta</label>
+          <label htmlFor="email" className="font-mono text-xs text-on-surface-variant uppercase tracking-widest">E-posta</label>
           <input 
             id="email"
             name="email"
@@ -84,11 +86,12 @@ export default function ContactForm() {
             placeholder="ornek@email.com" 
             type="email" 
             required
+            autoComplete="email"
           />
         </div>
         
         <div className="flex flex-col gap-2 relative group">
-          <label htmlFor="message" className="font-mono text-[10px] text-on-surface-variant/80 uppercase tracking-widest">Mesaj</label>
+          <label htmlFor="message" className="font-mono text-xs text-on-surface-variant uppercase tracking-widest">Mesaj</label>
           <textarea 
             id="message"
             name="message"

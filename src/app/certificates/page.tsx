@@ -1,11 +1,20 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient as createClient } from "@/lib/supabase/public";
 import { Certificate } from "@/types/database";
 import { MagicCard } from "@/components/ui/magic-card";
 import { Particles } from "@/components/ui/particles";
+import Icon from "@/components/ui/icon";
+import type { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
+
+export const metadata: Metadata = {
+  title: "Sertifikalar & Başarılar",
+  description:
+    "Farklı disiplinlerde edindiğim sertifikalar — sürekli öğrenme ve gelişime inancımın bir yansıması.",
+  alternates: { canonical: "/certificates" },
+};
 
 export default async function CertificatesPage() {
   const supabase = createClient();
@@ -23,12 +32,12 @@ export default async function CertificatesPage() {
   return (
     <>
       <Header />
-      <main className="flex-grow pt-32 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10 bg-background">
+      <main id="main" className="flex-grow pt-32 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10 bg-background">
         <Particles
           className="absolute inset-0 z-0"
           quantity={80}
           ease={100}
-          color="#c4c7c7" /* outline-variant */
+          color="#c4c7c7"
           refresh
         />
         <section className="mb-section-gap relative z-10">
@@ -50,7 +59,7 @@ export default async function CertificatesPage() {
                   className="p-8 glass-panel border border-outline-variant/30 flex flex-col gap-6 hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-2"
                 >
                   <div className="w-16 h-16 bg-secondary/5 rounded-xl flex items-center justify-center text-secondary mb-2 border border-secondary/20">
-                    <span className="material-symbols-outlined text-3xl">workspace_premium</span>
+                    <Icon name="workspace_premium" className="w-8 h-8" />
                   </div>
                   <div>
                     <h2 className="font-headline-sm font-bold text-primary mb-2">{cert.title}</h2>
@@ -65,7 +74,7 @@ export default async function CertificatesPage() {
                     )}
                     {cert.url && (
                       <a href={cert.url} target="_blank" rel="noopener noreferrer" className="font-label-md text-secondary hover:text-primary transition-colors uppercase tracking-wider flex items-center gap-1">
-                        Sertifikayı Gör <span className="material-symbols-outlined text-sm">open_in_new</span>
+                        Sertifikayı Gör <Icon name="open_in_new" className="w-3.5 h-3.5" />
                       </a>
                     )}
                   </div>
@@ -74,7 +83,7 @@ export default async function CertificatesPage() {
             </div>
           ) : (
             <div className="glass-panel p-16 rounded-3xl text-center border border-outline-variant/30 relative z-10">
-              <span className="material-symbols-outlined text-8xl text-outline mb-4">workspace_premium</span>
+              <Icon name="workspace_premium" className="w-20 h-20 text-outline mb-4 mx-auto" />
               <p className="font-body-lg text-on-surface-variant">Henüz sertifika eklenmedi.</p>
             </div>
           )}

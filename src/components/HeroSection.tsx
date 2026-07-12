@@ -2,7 +2,7 @@
 
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { WordPullUp } from "@/components/ui/word-pull-up";
-import StaticMeshGradient, { staticMeshGradientPresets } from "@/components/ui/static-mesh-gradient";
+import StaticMeshGradient, { staticMeshGradientPresets } from "@/components/ui/mesh-gradient";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { Profile } from "@/types/database";
@@ -14,7 +14,7 @@ const heroMeshPreset =
 
 export default function HeroSection({ profile }: { profile: Profile | null }) {
   return (
-    <section className="relative flex min-h-[75vh] w-full flex-col items-center justify-center overflow-hidden bg-background text-primary pt-32 pb-16 md:py-24" id="hero">
+    <section className="relative flex min-h-[75vh] w-full flex-col items-center justify-center overflow-hidden bg-[#000c66] text-white pt-32 pb-16 md:py-24" id="hero">
       {/* Static mesh-gradient used full-bleed as the hero background image */}
       <StaticMeshGradient
         aria-hidden="true"
@@ -24,10 +24,10 @@ export default function HeroSection({ profile }: { profile: Profile | null }) {
         className="pointer-events-none absolute inset-0 h-full w-full"
         style={{ width: "100%", height: "100%" }}
       />
-      {/* Light scrim so foreground text & cards stay readable over the image */}
+      {/* Very subtle bottom scrim so text stays readable */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/20 via-background/30 to-background/40"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/20"
       />
 
       <div className="z-10 flex w-full max-w-container-max flex-col lg:flex-row items-center justify-between px-margin-mobile md:px-margin-desktop gap-16">
@@ -37,13 +37,13 @@ export default function HeroSection({ profile }: { profile: Profile | null }) {
 
           <div className="mb-6 w-full">
             <WordPullUp
-              className="text-4xl sm:text-6xl lg:text-[76px] font-bold text-primary font-display-lg leading-tight lg:leading-[1.05] tracking-tighter text-center lg:text-left"
+              className="text-4xl sm:text-6xl lg:text-[76px] font-bold text-white font-display-lg leading-tight lg:leading-[1.05] tracking-tighter text-center lg:text-left"
               words={profile?.full_name || "Yuşa Duymaz"}
             />
           </div>
 
-          <h2 className="text-lg sm:text-xl md:text-2xl text-on-surface-variant font-body-md mb-10 max-w-2xl font-light leading-relaxed">
-            <span className="text-secondary font-medium">{profile?.title || "Data Science & AI | FullStack Developer"}</span>
+          <h2 className="text-lg sm:text-xl md:text-2xl text-white/80 font-body-md mb-10 max-w-2xl font-light leading-relaxed">
+            <span className="text-[#ffd500] font-medium">{profile?.title || "Data Science & AI | FullStack Developer"}</span>
             <br></br>
             <span> Akıllı, ölçeklenebilir ve yüksek performanslı sistemler geliştiriyorum.</span>
           </h2>
@@ -61,7 +61,7 @@ export default function HeroSection({ profile }: { profile: Profile | null }) {
               </ShimmerButton>
             </a>
 
-            <a href="#contact" className="w-full sm:w-auto px-8 py-4 rounded-xl font-label-md text-on-surface hover:text-primary hover:bg-white/80 active:scale-[0.98] transition-all duration-300 border border-outline-variant bg-white/55 text-sm tracking-widest uppercase text-center shadow-sm">
+            <a href="#contact" className="w-full sm:w-auto px-8 py-4 rounded-xl font-label-md text-white hover:bg-white/20 active:scale-[0.98] transition-all duration-300 border border-white/40 bg-white/10 text-sm tracking-widest uppercase text-center shadow-sm backdrop-blur-sm">
               İletişime Geç
             </a>
           </div>
@@ -77,7 +77,8 @@ export default function HeroSection({ profile }: { profile: Profile | null }) {
             <div className="relative w-full h-full rounded-[20px] overflow-hidden ring-1 ring-white/40 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.28)] transition-transform duration-500 hover:scale-[1.02]">
               <Image
                 fill
-                unoptimized
+                priority
+                sizes="(max-width: 768px) 90vw, 360px"
                 alt="Profile Portrait"
                 className="object-cover transition-transform duration-700 hover:scale-105"
                 src={profile?.avatar_url || "https://lh3.googleusercontent.com/aida-public/AB6AXuCDXq0TN1FWWFMP4y3TBk3ijC2ium5pK19cXaEAxUro-0WJ_pxAhFfDbZrSyLP30MsYd9F51v_vJGzIc81jqtP7QU_s0z_n1gvlDShSmdJMO06n0I0bIZsrUDDgdK4iLTNfXOwnc5m5wX6NlUC9t1SlNIpd4n8AFvTvRck-u8NX2H6tk7itzORE-TpKwEx2ov3nxz0xU9T1Y-BdOnrlLUwalchbFTyKlw0LHK61LyTL4ju5xr45KEzslcLa40octKTiXrkQNqV39Eo"}

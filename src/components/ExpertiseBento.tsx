@@ -25,12 +25,11 @@ export default function ExpertiseBento({ expertise }: { expertise: Expertise[] }
             className="text-4xl md:text-5xl font-bold text-primary tracking-tight font-display-lg text-left"
             words="Uzmanlık Alanları"
           />
-          <p className="text-on-surface-variant mt-4 font-label-md tracking-widest text-secondary uppercase text-left">/sys/architecture/skills</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 h-auto md:min-h-[480px]">
           {/* Box 1: Data Science */}
-          <MagicCard 
+          <MagicCard
             className="col-span-1 glass-panel border border-white/60 transition-all duration-500 hover:shadow-xl overflow-hidden rounded-3xl group"
             gradientColor="rgba(197, 160, 89, 0.03)"
           >
@@ -43,13 +42,13 @@ export default function ExpertiseBento({ expertise }: { expertise: Expertise[] }
                   01
                 </div>
               </div>
-              
+
               <div className="mt-auto relative z-10">
                 <h3 className="text-2xl md:text-3xl font-bold text-primary mb-3 font-display-lg tracking-tight">Data Science</h3>
                 <p className="text-on-surface-variant text-sm md:text-base leading-relaxed max-w-xl font-body-lg">
                   Veriden anlamlı içgörüler çıkarma, makine öğrenmesi modelleri geliştirme ve karmaşık veri setlerini analiz etme konusundaki yetkinliklerim.
                 </p>
-                
+
                 <div className="flex gap-2.5 mt-8 flex-wrap">
                   {dsItems.length > 0 ? dsItems.map(item => (
                     <span key={item.id} className="px-3.5 py-1.5 rounded-full bg-white/70 border border-outline-variant/30 text-primary text-xs font-mono tracking-wider shadow-sm hover:border-secondary hover:text-secondary transition-all duration-300 cursor-default">
@@ -66,7 +65,7 @@ export default function ExpertiseBento({ expertise }: { expertise: Expertise[] }
           </MagicCard>
 
           {/* Box 2: Full-stack Development */}
-          <MagicCard 
+          <MagicCard
             className="col-span-1 glass-panel border border-white/60 transition-all duration-500 hover:shadow-xl overflow-hidden rounded-3xl group"
             gradientColor="rgba(197, 160, 89, 0.03)"
           >
@@ -85,7 +84,7 @@ export default function ExpertiseBento({ expertise }: { expertise: Expertise[] }
                 <p className="text-on-surface-variant text-sm md:text-base leading-relaxed font-body-lg max-w-xl">
                   Modern web teknolojileri ile uçtan uca, ölçeklenebilir ve yüksek performanslı uygulamalar geliştirme yetkinliklerim.
                 </p>
-                
+
                 <div className="flex gap-2.5 mt-8 flex-wrap">
                   {fsItems.length > 0 ? fsItems.map(item => (
                     <span key={item.id} className="px-3.5 py-1.5 rounded-full bg-white/70 border border-outline-variant/30 text-primary text-xs font-mono tracking-wider shadow-sm hover:border-secondary hover:text-secondary transition-all duration-300 cursor-default">
