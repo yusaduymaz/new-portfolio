@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "M.Y.D. Portfolio — Web Tasarımcı & Geliştirici",
-    short_name: "M.Y.D. Portfolio",
+    name: "Yuşa Duymaz — Web Tasarımcı & Geliştirici",
+    short_name: "Yuşa Duymaz",
     description:
       "Data Science, AI ve Full-Stack geliştirme alanlarında premium web tasarım, geliştirme ve SEO hizmetleri.",
     start_url: "/",

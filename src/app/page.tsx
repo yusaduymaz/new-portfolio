@@ -67,7 +67,7 @@ export default async function Home() {
                   <div className="relative z-10 flex flex-col h-full justify-between gap-8">
                     <div>
                       <h3 className="font-display-lg text-3xl md:text-5xl text-primary mb-2 tracking-tight">{aboutData?.full_name || profile?.full_name || "Muhammed Yuşa Duymaz"}</h3>
-                      <h4 className="font-label-md text-secondary tracking-widest uppercase mb-6 text-sm">{aboutData?.title || profile?.title || "Senior Web Designer & Developer"}</h4>
+                      <h4 className="font-label-md text-secondary tracking-widest uppercase mb-6 text-sm">{aboutData?.title || profile?.title || "Web Designer & Developer"}</h4>
                       <div className="font-body-md text-on-surface-variant leading-relaxed text-base md:text-lg flex flex-col gap-4 max-w-2xl">
                         <p>
                           {aboutData?.description || "Dijital dünyada estetik ve fonksiyonelliği bir araya getiren çözümler üretmeye tutkulu bir Web Tasarımcı ve Geliştiriciyim."}

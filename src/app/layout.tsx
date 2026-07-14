@@ -22,8 +22,8 @@ const spaceGrotesk = Space_Grotesk({
   adjustFontFallback: true,
 });
 
-const siteName = "M.Y.D. Portfolio";
-const title = "M.Y.D. Portfolio — Web Tasarımcı & Geliştirici";
+const siteName = "Yuşa Duymaz";
+const title = "Yuşa Duymaz — Web Tasarımcı & Geliştirici";
 const description =
   "Data Science, AI ve Full-Stack geliştirme alanlarında premium web tasarım, geliştirme ve SEO hizmetleri. Yüksek performanslı, ölçeklenebilir dijital ürünler.";
 
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: title,
-    template: "%s | M.Y.D. Portfolio",
+    template: "%s | Yuşa Duymaz",
   },
   description,
   applicationName: siteName,
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "M.Y.D. Portfolio — Web Tasarımcı & Geliştirici",
+        alt: "Yuşa Duymaz — Web Tasarımcı & Geliştirici",
       },
     ],
   },
@@ -96,7 +96,7 @@ const jsonLd = {
   name: "Muhammed Yuşa Duymaz",
   url: siteUrl,
   image: `${siteUrl}/og-image.svg`,
-  jobTitle: "Senior Web Designer & Developer",
+  jobTitle: "Web Designer & Developer",
   description,
   knowsAbout: [
     "Web Development",
